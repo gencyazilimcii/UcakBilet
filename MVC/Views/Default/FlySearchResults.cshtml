@@ -1,0 +1,49 @@
+﻿@model List<Flight>
+
+@{
+    ViewData["Title"] = "FlySearchResults";
+    Layout = "~/Views/Shared/_UILayout.cshtml";
+}
+
+<head>
+    <style>
+
+    </style>
+</head>
+<center style="margin-top:150px; margin-bottom:200px;">
+
+    <h2>Uygun Uçuşlar</h2>
+    <br />
+    <br />
+    @if (Model != null && Model.Count > 0)
+    {
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>Kalkış</th>
+                    <th>Varış</th>
+                    <th>Kalkış Tarihi</th>
+                    <th>Bilet Fiyatı</th>
+                    <!-- Diğer kolonlar -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Departure</td>
+                        <td>@item.Arrival</td>
+                        <td>@item.DepatureDate</td>
+                        <td>@item.TicketPrice</td>
+                        <!-- Diğer kolonlar -->
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Uygun uçuş bulunamadı.</p>
+    }
+</center>
+
